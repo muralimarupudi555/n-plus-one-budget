@@ -17,6 +17,7 @@ CHECKED_DOCUMENTS = (
     "docs/adr/ADR-002-simulating-distance-with-a-sleep.md",
     "docs/adr/ADR-003-three-apparatus-mistakes.md",
     "docs/adr/ADR-004-what-this-cannot-measure.md",
+    "docs/adr/ADR-005-the-gate-could-not-see-itself.md",
 )
 
 
