@@ -35,6 +35,8 @@ class QueryCounter:
     round_trip_seconds: float = 0.0
     count: int = 0
     queries: list[str] = field(default_factory=list)
+    slept_seconds: float = 0.0
+    sleeps: int = 0
     _lock: threading.Lock = field(default_factory=threading.Lock)
     _budget: int | None = None
     _budget_label: str = ""
@@ -59,12 +61,28 @@ class QueryCounter:
                 f"Queries in this block:\n{self.summary(since=started)}"
             )
         if self.round_trip_seconds > 0:
+            # Timed, because a short sleep does not last as long as it was asked to. At a
+            # tenth of a millisecond the scheduler adds more than half as much again, so
+            # a prediction built on the requested figure is wrong by a factor the sweep
+            # would otherwise report as a finding. What is injected is measured.
+            started = time.perf_counter()
             time.sleep(self.round_trip_seconds)
+            actual = time.perf_counter() - started
+            with self._lock:
+                self.slept_seconds += actual
+                self.sleeps += 1
+
+    @property
+    def effective_round_trip_seconds(self) -> float:
+        """What a simulated round trip actually cost, rather than what was asked for."""
+        return self.slept_seconds / self.sleeps if self.sleeps else 0.0
 
     def reset(self) -> None:
         with self._lock:
             self.count = 0
             self.queries.clear()
+            self.slept_seconds = 0.0
+            self.sleeps = 0
 
     def summary(self, limit: int = 6, since: int = 0) -> str:
         """The distinct shapes issued, with how many times each ran.
@@ -104,7 +122,12 @@ class QueryCounter:
                  self._budget_started) = previous
 
     def as_dict(self) -> dict:
-        return {"queries": self.count, "round_trip_seconds": self.round_trip_seconds}
+        return {
+            "queries": self.count,
+            "round_trip_seconds": self.round_trip_seconds,
+            "effective_round_trip_seconds": round(
+                self.effective_round_trip_seconds, 8),
+        }
 
 
 def _summarise(query: str) -> str:

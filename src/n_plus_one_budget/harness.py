@@ -30,6 +30,7 @@ class LoadResult:
     bytes_returned: int
     seconds: float
     seconds_spread: float
+    effective_round_trip_seconds: float
     matches_reference: bool
 
     @property
@@ -52,6 +53,8 @@ class LoadResult:
             "rows_returned": self.rows_returned,
             "bytes_returned": self.bytes_returned,
             "ms": round(self.ms, 3),
+            "effective_round_trip_ms": round(
+                self.effective_round_trip_seconds * 1000, 4),
             "seconds_spread": round(self.seconds_spread, 4),
             "matches_reference": self.matches_reference,
         }
@@ -72,6 +75,7 @@ def run_load(config: LoadConfig, build_schema: bool = True) -> LoadResult:
     queries = 0
     rows = 0
     payload = 0
+    effective = 0.0
     matches = True
 
     for _ in range(config.repeats):
@@ -82,6 +86,7 @@ def run_load(config: LoadConfig, build_schema: bool = True) -> LoadResult:
             queries = conn.query_counter.count
             rows = loaded.rows_returned
             payload = loaded.bytes_returned
+            effective = conn.query_counter.effective_round_trip_seconds
             matches = matches and loaded.shape() == reference
 
     low = min(timings)
@@ -89,5 +94,6 @@ def run_load(config: LoadConfig, build_schema: bool = True) -> LoadResult:
         config=config, queries=queries, rows_returned=rows, bytes_returned=payload,
         seconds=statistics.median(timings),
         seconds_spread=max(timings) / low if low > 0 else 0.0,
+        effective_round_trip_seconds=effective,
         matches_reference=matches,
     )
