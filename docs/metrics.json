@@ -1,0 +1,145 @@
+{
+  "metrics": {
+    "largest_page": 200,
+    "largest_page_queries": 201,
+    "largest_page_npo_ms": 23.18,
+    "largest_page_batched_ms": 2.946,
+    "worst_local_difference_ms": 20.234,
+    "sweep_parents": 100,
+    "extra_round_trips": 99,
+    "local_slowdown": 5.63,
+    "local_extra_ms": 10.933,
+    "remote_round_trip_ms": 5.0,
+    "remote_slowdown": 43.66,
+    "remote_extra_ms": 563.243,
+    "remote_npo_ms": 576.445,
+    "first_noticeable_ms": 1.0,
+    "cost_per_trip_slope": 1.0507,
+    "injection_overhead_ms": 0.3256,
+    "narrow_parent": 20,
+    "narrow_bytes_ratio": 2.272,
+    "wide_parent": 8000,
+    "wide_bytes_ratio": 5.948,
+    "wide_duplicated_bytes": 4005420,
+    "join_rows": 600,
+    "batched_rows": 700,
+    "local_crossover": 2000,
+    "remote_crossover": 8000,
+    "tests": 68
+  },
+  "display": {
+    "largest_page_npo_ms": "23.2",
+    "largest_page_batched_ms": "2.9",
+    "worst_local_difference_ms": "20.2",
+    "local_slowdown": "5.6",
+    "local_extra_ms": "10.9",
+    "remote_slowdown": "44",
+    "remote_extra_ms": "563",
+    "remote_npo_ms": "576",
+    "remote_round_trip_ms": "5",
+    "first_noticeable_ms": "1",
+    "cost_per_trip_slope": "1.05",
+    "injection_overhead_ms": "0.33",
+    "narrow_bytes_ratio": "2.27",
+    "wide_bytes_ratio": "5.95",
+    "largest_page": "200",
+    "largest_page_queries": "201",
+    "sweep_parents": "100",
+    "extra_round_trips": "99",
+    "narrow_parent": "20",
+    "wide_parent": "8000",
+    "wide_duplicated_bytes": "4005420",
+    "join_rows": "600",
+    "batched_rows": "700",
+    "local_crossover": "2000",
+    "remote_crossover": "8000",
+    "tests": "68"
+  },
+  "anchors": {
+    "largest_page": [
+      "{} parents"
+    ],
+    "largest_page_queries": [
+      "{} queries"
+    ],
+    "largest_page_npo_ms": [
+      "{} ms against"
+    ],
+    "largest_page_batched_ms": [
+      "against {} ms"
+    ],
+    "worst_local_difference_ms": [
+      "worst local difference was {} ms"
+    ],
+    "sweep_parents": [
+      "a page of {} parents"
+    ],
+    "extra_round_trips": [
+      "{} more round trips"
+    ],
+    "local_slowdown": [
+      "{}x slower locally"
+    ],
+    "local_extra_ms": [
+      "{} ms of difference"
+    ],
+    "remote_round_trip_ms": [
+      "at a {} ms round trip"
+    ],
+    "remote_slowdown": [
+      "becomes {}x slower"
+    ],
+    "remote_extra_ms": [
+      "{} ms worse"
+    ],
+    "remote_npo_ms": [
+      "takes {} ms"
+    ],
+    "first_noticeable_ms": [
+      "somewhere around {} ms"
+    ],
+    "cost_per_trip_slope": [
+      "slope of {}"
+    ],
+    "injection_overhead_ms": [
+      "overhead of {} ms"
+    ],
+    "narrow_parent": [
+      "a parent of {} characters"
+    ],
+    "narrow_bytes_ratio": [
+      "sends {}x the bytes"
+    ],
+    "wide_parent": [
+      "at {} characters"
+    ],
+    "wide_bytes_ratio": [
+      "that becomes {}x"
+    ],
+    "wide_duplicated_bytes": [
+      "{} characters of repeated"
+    ],
+    "join_rows": [
+      "{} rows against"
+    ],
+    "batched_rows": [
+      "against {} rows"
+    ],
+    "local_crossover": [
+      "loses locally at {}"
+    ],
+    "remote_crossover": [
+      "only at {} characters"
+    ],
+    "tests": [
+      "{} tests"
+    ]
+  },
+  "checked_documents": [
+    "README.md",
+    "docs/adr/ADR-001-counting-at-the-cursor.md",
+    "docs/adr/ADR-002-simulating-distance-with-a-sleep.md",
+    "docs/adr/ADR-003-three-apparatus-mistakes.md",
+    "docs/adr/ADR-004-what-this-cannot-measure.md"
+  ]
+}

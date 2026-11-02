@@ -1,0 +1,93 @@
+{
+  "experiment": "e2_the_cost_is_round_trips",
+  "parents": 100,
+  "children_each": 4,
+  "repeats": 5,
+  "rows": [
+    {
+      "cost_per_extra_trip_ms": 0.0,
+      "injection_overhead_ms": 0.0,
+      "round_trip_ms": 0.0,
+      "effective_round_trip_ms": 0.0,
+      "n_plus_one_ms": 13.296,
+      "batched_ms": 2.363,
+      "join_ms": 1.934,
+      "slowdown": 5.63,
+      "extra_ms": 10.933,
+      "would_be_noticed": false
+    },
+    {
+      "cost_per_extra_trip_ms": 0.2243,
+      "injection_overhead_ms": 0.1243,
+      "round_trip_ms": 0.1,
+      "effective_round_trip_ms": 0.171,
+      "n_plus_one_ms": 36.113,
+      "batched_ms": 2.974,
+      "join_ms": 2.118,
+      "slowdown": 12.14,
+      "extra_ms": 33.14,
+      "would_be_noticed": false
+    },
+    {
+      "cost_per_extra_trip_ms": 0.8509,
+      "injection_overhead_ms": 0.3509,
+      "round_trip_ms": 0.5,
+      "effective_round_trip_ms": 0.6115,
+      "n_plus_one_ms": 98.966,
+      "batched_ms": 3.792,
+      "join_ms": 2.682,
+      "slowdown": 26.1,
+      "extra_ms": 95.175,
+      "would_be_noticed": false
+    },
+    {
+      "cost_per_extra_trip_ms": 1.4053,
+      "injection_overhead_ms": 0.4053,
+      "round_trip_ms": 1.0,
+      "effective_round_trip_ms": 1.1253,
+      "n_plus_one_ms": 155.34,
+      "batched_ms": 5.278,
+      "join_ms": 3.116,
+      "slowdown": 29.43,
+      "extra_ms": 150.062,
+      "would_be_noticed": true
+    },
+    {
+      "cost_per_extra_trip_ms": 2.4792,
+      "injection_overhead_ms": 0.4792,
+      "round_trip_ms": 2.0,
+      "effective_round_trip_ms": 2.1263,
+      "n_plus_one_ms": 263.258,
+      "batched_ms": 6.885,
+      "join_ms": 4.247,
+      "slowdown": 38.24,
+      "extra_ms": 256.373,
+      "would_be_noticed": true
+    },
+    {
+      "cost_per_extra_trip_ms": 5.5789,
+      "injection_overhead_ms": 0.5789,
+      "round_trip_ms": 5.0,
+      "effective_round_trip_ms": 5.148,
+      "n_plus_one_ms": 576.445,
+      "batched_ms": 13.202,
+      "join_ms": 7.339,
+      "slowdown": 43.66,
+      "extra_ms": 563.243,
+      "would_be_noticed": true
+    }
+  ],
+  "cost_per_trip_slope": 1.0507,
+  "slope_is_one": true,
+  "injection_overhead_ms": 0.3256,
+  "baseline_extra_ms": 10.933,
+  "slowdown_grows_with_distance": true,
+  "local_slowdown": 5.63,
+  "local_extra_ms": 10.933,
+  "remote_round_trip_ms": 5.0,
+  "remote_slowdown": 43.66,
+  "remote_extra_ms": 563.243,
+  "remote_n_plus_one_ms": 576.445,
+  "first_noticeable_round_trip_ms": 1.0,
+  "extra_round_trips": 99
+}
